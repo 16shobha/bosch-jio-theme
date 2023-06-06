@@ -7,6 +7,7 @@ function App() {
     <HashRouter>
       <Routes>
         <Route exact path="/" element={<Welcomepage />} />
+        <Route exact path="/login" element={<LoginPage />} />
       </Routes>
     </HashRouter>
   );
