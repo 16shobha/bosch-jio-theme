@@ -10,7 +10,7 @@
     background-size: cover;
    
 }
-.btn {
+.btnlog {
    background-color:#ffe001;
    position:absolute;
    top:90%;
@@ -18,7 +18,7 @@
    font-weight: bold;
    border: none;
 }
-img{
+.imgstyle{
    height: 100px;
    width: 150px;
    margin-top:40em;
