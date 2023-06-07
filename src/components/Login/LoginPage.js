@@ -2,6 +2,7 @@ import React from "react";
 import "../Login/LoginPage.css";
 import logo from "../../assets/jio_bp.png";
 import '../../../node_modules/font-awesome/css/font-awesome.min.css' ; 
+import { Link } from "react-router-dom";
 const LoginPage = () => {
   return (
     <>
@@ -36,9 +37,9 @@ const LoginPage = () => {
                 placeholder= "&#xf084;    Password"
               />
             </div>
-            <button type="submit" className="btnsub btn btn-md">
+            <Link to ="/home"><button type="submit" className="btnsub btn btn-md">
               Submit
-            </button>
+            </button></Link>
             <h5 className="my-2 links"><a href="#">Not a Member? Sign up.</a></h5>
             <h6 className="m-2 pb-2 links"><a href="#">Forgot Password?</a></h6>
           </form>
