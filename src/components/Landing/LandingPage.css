@@ -1,0 +1,10 @@
+.heading h3 {
+   font-size: 25px;
+   font-family: 'Segoe UI';
+   font-weight: bold;
+   padding: 20px 15px 15px 15px;
+}
+thead th {
+    padding: 10px;
+    background: darkgray;
+}
