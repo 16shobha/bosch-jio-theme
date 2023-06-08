@@ -6,8 +6,16 @@ const LandingPage = () => {
     return (
         <div>
             <Navbar />
-            <div className='heading'>
-                <h3>Fleet Management</h3>
+            <div className='d-flex align-items-center '>
+                <div>
+                <h3 className='heading'>Fleet Management</h3>
+                </div>
+                
+                <div className='Searchadd'>
+                    <input type='search' placeholder='Search'/>
+                <button type='button' className='btn btn-success btn-md mx-4 buttontext'>+</button>
+                </div>
+                
             </div>
             <div class="table-responsive bg-light mx-3">
                 <table class="table">

@@ -1,10 +1,26 @@
-.heading h3 {
+.heading  {
    font-size: 25px;
    font-family: 'Segoe UI';
    font-weight: bold;
-   padding: 20px 15px 15px 15px;
+   padding: 15px 15px 15px 15px;
 }
 thead th {
     padding: 10px;
     background: darkgray;
+}
+
+.labeltext{
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.Searchadd{
+    right:0%;
+    position:absolute;
+    margin-right: 1.5rem;
+}
+
+.buttontext{
+    font-size: 15px;
+    font-weight: 800;
 }
