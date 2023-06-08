@@ -1,6 +1,7 @@
 import React from 'react'
 import '../Navbar/Style.css'
 import logo from '../../assets/jio_bp.png'
+import { Link } from "react-router-dom";
 const Navbar = () => {
     return (
         <div>
@@ -14,17 +15,17 @@ const Navbar = () => {
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">
-                                <i class="fa-solid fa-house"></i>Fleet</a>
+                        <Link to ="/home"><a class="nav-link" href="#">
+                                <i class="fa-solid fa-house"></i>Fleet</a></Link>
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fa-solid fa-bell"></i>Quality Monitoring</a>
+                        <Link to ="/notifications"><a class="nav-link" href="#">
+                                <i class="fa-solid fa-bell"></i>Quality Monitoring</a></Link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fa-solid fa-clock"></i>Fleet Aging</a>
+                        <Link to ="/aging"><a class="nav-link" href="#">
+                                <i class="fa-solid fa-clock"></i>Fleet Aging</a></Link>
                         </li>
                     </ul>
                 </div>
