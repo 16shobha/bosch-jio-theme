@@ -4,7 +4,6 @@ import Navbar from '../Navbar/Navbar'
 const FleetAging = () => {
     return (
         <div>
-            <Navbar />
             <div className='my-3 mx-3'>
                 <form >
                     <div className='d-flex flex-row'>

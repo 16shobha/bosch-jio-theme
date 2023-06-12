@@ -4,7 +4,6 @@ import '../History/Notification.css'
 const Notification = () => {
     return (
         <div style={{overflowX:"hidden"}}>
-            <Navbar />
             <div className='my-3 mx-3'>
                 <form >
                     <div className='d-flex flex-row'>

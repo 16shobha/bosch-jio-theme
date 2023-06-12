@@ -5,7 +5,6 @@ import '../Landing/LandingPage.css'
 const LandingPage = () => {
     return (
         <div>
-            <Navbar />
             <div className='d-flex align-items-center '>
                 <div>
                 <h3 className='heading'>Fleet Management</h3>
