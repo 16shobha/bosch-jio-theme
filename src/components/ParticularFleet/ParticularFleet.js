@@ -54,7 +54,7 @@ const ParticularFleet = () => {
             </div>
             <div className='d-flex align-items-center my-3'>
                 <div>
-                <h3 className='heading'>Fleet : F1</h3>
+                <h3 className='heading'>Fleet : F101</h3>
                 </div>
                 
                 <div className='Searchadd'>
