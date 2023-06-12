@@ -3,7 +3,6 @@ import Navbar from '../Navbar/Navbar'
 const ParticularFleet = () => {
     return (
         <div style={{overflowX:"hidden"}}>
-            <Navbar />
             <div className='my-4'>
                 <div class="row no-gutters justify-content-center">
                     <div class="col-sm-2 mb-3 mb-sm-0">
