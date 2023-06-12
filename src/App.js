@@ -6,7 +6,9 @@ import LandingPage from "./components/Landing/LandingPage";
 import FleetAging from "./components/Aging/FleetAging";
 import Notification from "./components/History/Notification";
 import ParticularFleet from "./components/ParticularFleet/ParticularFleet";
+import ParticularVehicle from "./components/ParticularVehicle/ParticularVehicle";
 import Navbar from "./components/Navbar/Navbar";
+
 function App() {
   let location = useLocation();
   useEffect(()=>{
@@ -23,6 +25,7 @@ function App() {
         <Route exact path="/aging" element={<FleetAging />} />
         <Route exact path="/notifications" element={<Notification />} />
         <Route exact path="/particularfleet" element={<ParticularFleet />} />
+        <Route exact path="/particularvehicle" element={<ParticularVehicle />} />
       </Routes>
       </>
   );
