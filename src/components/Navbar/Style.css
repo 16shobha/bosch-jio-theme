@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #9ADE82;
+    background-color: #7cc445;
     
 }
 .logostyle{
@@ -34,6 +34,7 @@
     padding: 8px;
     font-size: 15px;
     align-items: center;
+    transition: all 0.3s linear;
 }
 
 .main span{
@@ -41,4 +42,7 @@
     font-size: 15px;
     text-align: center;
     font-weight: bold;
+}
+i:hover {
+    transform: scale(1.5);
 }
