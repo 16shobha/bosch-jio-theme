@@ -24,7 +24,7 @@ const ParticularVehicle = () => {
                             Severity
                         </th>
                         <th style={{textAlign:"center"}}>
-                            Date Of Occurance
+                            Date of Occurence
                         </th>
                         <th style={{textAlign:"center"}}>
                            Historical results
@@ -35,31 +35,31 @@ const ParticularVehicle = () => {
                             <td>Cell Voltage Deviation</td>
                             <td>Low</td>
                             <td>25 Mar 2023</td>
-                            <td><a href="#">view summary</a></td>
+                            <td><a href="#">View summary</a></td>
                         </tr>
                         <tr>
                             <td>Cell Temperature Deviation</td>
                             <td>Medium</td>
                             <td>25 Mar 2023</td>
-                            <td><a href="#">view summary</a></td>
+                            <td><a href="#">View summary</a></td>
                         </tr>
                         <tr>
                             <td>Acc Aging AE</td>
                             <td>Low</td>
                             <td>25 Mar 2023</td>
-                            <td><a href="#">view Summary</a></td>
+                            <td><a href="#">View Summary</a></td>
                         </tr>
                         <tr>
                             <td>OverTemperature AE</td>
                             <td>High</td>
                             <td>25 Mar 2023</td>
-                            <td><a href="#">view summary</a></td>
+                            <td><a href="#">View summary</a></td>
                         </tr>
                         <tr>
                             <td>Over/Under Charging</td>
                             <td>High</td>
                             <td>25 Mar 2023</td>
-                            <td><a href="#">view summary</a></td>
+                            <td><a href="#">View summary</a></td>
                         </tr>
                     </tbody>
                 </table>

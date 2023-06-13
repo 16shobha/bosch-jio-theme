@@ -57,49 +57,49 @@ const FleetAging = () => {
                             <td>Lithium ion</td>
                             <td>25 Mar 2019</td>
                             <td>25 Mar 2023</td>
-                            <td style={{ color: "red" }}>High</td>
+                            <td>High</td>
                         </tr>
                         <tr>
                             <td>V1234</td>
                             <td>Lithium ion</td>
                             <td>25 Mar 2018</td>
                             <td>25 Mar 2028</td>
-                            <td style={{ color: "green" }}>Low</td>
+                            <td>Low</td>
                         </tr>
                         <tr>
                             <td>V1234</td>
                             <td>Lithium ion</td>
                             <td>25 Mar 2016</td>
                             <td>25 Mar 2023</td>
-                            <td style={{ color: "red" }}>High</td>
+                            <td>High</td>
                         </tr>
                         <tr>
                             <td>V1234</td>
                             <td>Lithium ion</td>
                             <td>25 Mar 2017</td>
                             <td>25 Mar 2025</td>
-                            <td style={{ color: "yellow" }}>Moderate</td>
+                            <td>Moderate</td>
                         </tr>
                         <tr>
                             <td>V1234</td>
                             <td>Lithium ion</td>
                             <td>25 Mar 2018</td>
                             <td>25 Mar 2028</td>
-                            <td style={{ color: "green" }}>Low</td>
+                            <td>Low</td>
                         </tr>
                         <tr>
                             <td>V1234</td>
                             <td>Lithium ion</td>
                             <td>25 Mar 2017</td>
                             <td>25 Mar 2025</td>
-                            <td style={{ color: "yellow" }}>Moderate</td>
+                            <td>Moderate</td>
                         </tr>
                         <tr>
                             <td>V1234</td>
                             <td>Lithium ion</td>
                             <td>25 Mar 2019</td>
                             <td>25 Mar 2023</td>
-                            <td style={{ color: "red" }}>High</td>
+                            <td>High</td>
                         </tr>
                     </tbody>
                 </table>
