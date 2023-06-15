@@ -1,14 +1,6 @@
 import React from 'react'
-import {
-    BarChart,
-    Bar,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    Legend,
-    ResponsiveContainer,
-  } from "recharts";
+import Linechart from '../Linechart'
+
 
 const ParticularVehicle = () => {
     return (
@@ -28,6 +20,7 @@ const ParticularVehicle = () => {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <Linechart/>
       {/* <ResponsiveContainer width="100%" height={400}>
       <BarChart
         // data={data}
