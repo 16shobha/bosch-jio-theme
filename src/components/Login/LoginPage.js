@@ -37,7 +37,7 @@ const LoginPage = () => {
             <Link to ="/home"><button type="submit" className="btn btn-md btn-success">
               Submit
             </button></Link>
-            <p className="my-2 links"><a href="#">Not a Member? Sign up.</a></p>
+            <p className="my-2 links">Not a Member?<a href="#"> Sign up.</a></p>
             <h6 className="m-2 pb-2 links"><a href="#">Forgot Password?</a></h6>
           </form>
         </div>
