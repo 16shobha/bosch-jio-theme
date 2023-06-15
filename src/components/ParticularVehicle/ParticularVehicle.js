@@ -88,31 +88,31 @@ const ParticularVehicle = () => {
                             <td>Cell Voltage Deviation</td>
                             <td>Low</td>
                             <td>25 Mar 2023</td>
-                            <td><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">View Summary</button></td>
+                            <td><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">View</button></td>
                         </tr>
                         <tr>
                             <td>Cell Temperature Deviation</td>
                             <td>Medium</td>
                             <td>25 Mar 2023</td>
-                            <td><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">View Summary</button></td>
+                            <td><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">View</button></td>
                         </tr>
                         <tr>
                             <td>Acc Aging AE</td>
                             <td>Low</td>
                             <td>25 Mar 2023</td>
-                            <td><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">View Summary</button></td>
+                            <td><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">View</button></td>
                         </tr>
                         <tr>
                             <td>OverTemperature AE</td>
                             <td>High</td>
                             <td>25 Mar 2023</td>
-                            <td><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">View Summary</button></td>
+                            <td><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">View</button></td>
                         </tr>
                         <tr>
                             <td>Over/Under Charging</td>
                             <td>High</td>
                             <td>25 Mar 2023</td>
-                            <td><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">View Summary</button></td>
+                            <td><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">View</button></td>
                         </tr>
                     </tbody>
                 </table>
