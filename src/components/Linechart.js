@@ -17,7 +17,6 @@ const Linechart = () => {
         {x:"19/6/2023", y:50},
         {x:"20/6/2023", y:100},
         {x:"25/6/2023", y:50},
-        {x:"28/6/2023", y:100},
       ];
       function formatYAxis(value) {
         switch(value) {

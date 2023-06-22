@@ -1,7 +1,16 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import Navbar from '../Navbar/Navbar'
+import axios from 'axios';
 
 const FleetAging = () => {
+    const[aging,setaging] = useState('');
+    useEffect(() => {
+       axios.get('http://localhost:8080/api/fleets/batteryAging').then((res)=>{
+        const fleetaging = res.data;
+        setaging(fleetaging);
+        console.log(res.data);
+       })
+   }, []);
     return (
         <div>
             <div className='my-3 mx-3'>
@@ -52,55 +61,16 @@ const FleetAging = () => {
                         </th>
                     </thead>
                     <tbody style={{ textAlign: "center", justifyContent: "center" }}>
-                        <tr>
-                            <td>V1234</td>
-                            <td>Lithium ion</td>
-                            <td>25 Mar 2019</td>
-                            <td>25 Mar 2023</td>
-                            <td>High</td>
+                    {aging.length >0 && aging.map((item, index) => {
+                            return <tr key={index}>
+                            <td>{item.vehicleNumber}</td>
+                            <td>{item.batteryType}</td>
+                            <td>{item.batteryInstallationDate}</td>
+                            <td>{item.batteryExpirationDate}</td>
+                            <td>{item.agingPrediction}</td>
                         </tr>
-                        <tr>
-                            <td>V1234</td>
-                            <td>Lithium ion</td>
-                            <td>25 Mar 2018</td>
-                            <td>25 Mar 2028</td>
-                            <td>Low</td>
-                        </tr>
-                        <tr>
-                            <td>V1234</td>
-                            <td>Lithium ion</td>
-                            <td>25 Mar 2016</td>
-                            <td>25 Mar 2023</td>
-                            <td>High</td>
-                        </tr>
-                        <tr>
-                            <td>V1234</td>
-                            <td>Lithium ion</td>
-                            <td>25 Mar 2017</td>
-                            <td>25 Mar 2025</td>
-                            <td>Moderate</td>
-                        </tr>
-                        <tr>
-                            <td>V1234</td>
-                            <td>Lithium ion</td>
-                            <td>25 Mar 2018</td>
-                            <td>25 Mar 2028</td>
-                            <td>Low</td>
-                        </tr>
-                        <tr>
-                            <td>V1234</td>
-                            <td>Lithium ion</td>
-                            <td>25 Mar 2017</td>
-                            <td>25 Mar 2025</td>
-                            <td>Moderate</td>
-                        </tr>
-                        <tr>
-                            <td>V1234</td>
-                            <td>Lithium ion</td>
-                            <td>25 Mar 2019</td>
-                            <td>25 Mar 2023</td>
-                            <td>High</td>
-                        </tr>
+
+                        })}
                     </tbody>
                 </table>
             </div>
