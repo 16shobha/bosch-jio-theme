@@ -1,7 +1,27 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import Navbar from '../Navbar/Navbar'
 import '../History/Notification.css'
+import axios from 'axios';
+
 const Notification = () => {
+    const[fleets,setfleets]= useState([]);
+    const[notification,setnotification] = useState([]);
+    const [selectedfleet,setselectedfleet] = useState('');
+    useEffect(() => {
+         axios.get('http://localhost:8080/api/fleets').then((res)=>{
+         const fleetlist = res.data;
+         setfleets(fleetlist);
+         console.log(res.data);
+        })
+    }, []);
+
+    const displaydata=(selectedfleet)=>{
+        axios.get(`http://localhost:8080/api/fleets/${selectedfleet}/vehicles?query=${selectedfleet}`).then((res)=>{
+            const notilist = res.data;
+            setnotification(notilist);
+            console.log(res.data);
+           })
+       }
     return (
         <div style={{overflowX:"hidden"}}>
             <div className='my-3 mx-3'>
@@ -12,21 +32,19 @@ const Notification = () => {
                         </div>
 
                         <div className='mx-2 my-1'>
-                            <select id="fleet" name="cars">
-                                <option value="">Select your option</option>
-                                <option value="0">F101</option>
-                                <option value="1">F102</option>
-                                <option value="2">F103</option>
-                                <option value="3">F105</option>
-                                <option value="4">F106</option>
-                                <option value="5">F107</option>
-                                <option value="6">F108</option>
-                                <option value="7">F109</option>
-                                <option value="8">F110</option>
+                            <select id="fleet" name="fleets"  onChange={(e)=> setselectedfleet(e.target.value)}>
+                                <option value="">Select Fleet</option>
+                                {fleets.map((option) => {
+          return (
+            <option key={option.fleetId} value={option.fleetId}>
+              {option.fleetId}
+            </option>
+          );
+        })}
                             </select>
                         </div>
                     </div>
-                    <button type="submit" className='btn btn-sm btn-success my-3' > Submit</button>
+                    <button type="submit" className='btn btn-sm btn-success my-3' onClick={()=>displaydata(selectedfleet)} > Submit</button>
                 </form>
             </div>
             <div>
@@ -101,34 +119,16 @@ const Notification = () => {
                         </th>
                     </thead>
                     <tbody style={{ textAlign: "center", justifyContent: "center" }}>
-                        <tr>
-                            <td>Cell Voltage Deviation</td>
-                            <td>Medium</td>
-                            <td>V1234</td>
-                            <td>SUV</td>
-                            <td>25 Mar 2025</td>
+                    {notification.length >0 && notification.map((item, index) => {
+                            return <tr key={index}>
+                            <td>{item.notificationType}</td>
+                            <td>{item.notificationLevel}</td>
+                            <td>{item.vehicleNo}</td>
+                            <td>{item.vehicleType}</td>
+                            <td>{item.date}</td>
                         </tr>
-                        <tr>
-                            <td>Cell Temperature</td>
-                            <td>High</td>
-                            <td>V1234</td>
-                            <td>SUV</td>
-                            <td>25 Mar 2025</td>
-                        </tr>
-                        <tr>
-                            <td>Over Charging</td>
-                            <td>Low</td>
-                            <td>V1234</td>
-                            <td>SUV</td>
-                            <td>25 Mar 2025</td>
-                        </tr>
-                        <tr>
-                            <td>Over Temperature</td>
-                            <td>High</td>
-                            <td>V1234</td>
-                            <td>SUV</td>
-                            <td>25 Mar 2025</td>
-                        </tr>
+
+                        })}
                     </tbody>
                 </table>
             </div>
