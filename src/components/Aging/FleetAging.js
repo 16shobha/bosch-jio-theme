@@ -3,15 +3,26 @@ import Navbar from '../Navbar/Navbar'
 import axios from 'axios';
 
 const FleetAging = () => {
-    const[aging,setaging] = useState('');
+    const[aging,setaging] = useState([]);
+    const[fleets,setfleets]= useState([]);
+    const [selectedfleet,setselectedfleet] = useState('');
     useEffect(() => {
-       axios.get('http://localhost:8080/api/fleets/batteryAging').then((res)=>{
-        const fleetaging = res.data;
-        setaging(fleetaging);
+        axios.get('http://localhost:8080/api/fleets').then((res)=>{
+        const fleetlist = res.data;
+        setfleets(fleetlist);
         console.log(res.data);
        })
    }, []);
+   const displaydata=(selectedfleet)=>{
+    axios.get(`http://localhost:8080/fleets/${selectedfleet}/?query=${selectedfleet}`).then((res)=>{
+        const allfleets = res.data;
+        setaging(allfleets);
+        console.log(res.data);
+       })
+   }
+   console.log(selectedfleet);
     return (
+      
         <div>
             <div className='my-3 mx-3'>
                 <form >
@@ -21,21 +32,20 @@ const FleetAging = () => {
                     </div>
                     
                     <div className='mx-2 my-1'>
-                    <select id="fleet" name="cars">
-                        <option value="">Select your option</option>
-                        <option value="0">F101</option>
-                        <option value="1">F102</option>
-                        <option value="2">F103</option>
-                        <option value="3">F105</option>
-                        <option value="4">F106</option>
-                        <option value="5">F107</option>
-                        <option value="6">F108</option>
-                        <option value="7">F109</option>
-                        <option value="8">F110</option>
+                    <select id="fleet" name="fleets"
+                    onChange={(e)=> setselectedfleet(e.target.value)}>
+                        <option value="">Select Fleet</option>
+                        {fleets.map((option) => {
+          return (
+            <option key={option.fleetId} value={option.fleetId}>
+              {option.fleetId}
+            </option>
+          );
+        })}
                     </select>
                     </div>
                     </div>
-                    <button type="submit" className='btn btn-sm btn-success my-3' > Submit</button>
+                    <button type="submit" className='btn btn-sm btn-success my-3' onClick={()=>displaydata(selectedfleet)} > Submit</button>
                 </form>
             </div>
             <div >
@@ -63,11 +73,11 @@ const FleetAging = () => {
                     <tbody style={{ textAlign: "center", justifyContent: "center" }}>
                     {aging.length >0 && aging.map((item, index) => {
                             return <tr key={index}>
-                            <td>{item.vehicleNumber}</td>
+                            <td>{item.vehicleNo}</td>
                             <td>{item.batteryType}</td>
                             <td>{item.batteryInstallationDate}</td>
                             <td>{item.batteryExpirationDate}</td>
-                            <td>{item.agingPrediction}</td>
+                            <td>{item.breakdownRisk}</td>
                         </tr>
 
                         })}

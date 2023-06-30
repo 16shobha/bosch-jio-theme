@@ -1,7 +1,25 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import Navbar from '../Navbar/Navbar'
-const ParticularFleet = () => {
+import { Link } from "react-router-dom";
+import axios from 'axios';
+const ParticularFleet = (props) => {
+    console.log(props.fid);
+    const[fleetlist,setfleetlist] = useState([]);
+    useEffect(() => {
+        axios.get(`http://localhost:8080/fleets/${props.fid}/?query=${props.fid}`).then((res)=>{
+            const allfleets = res.data;
+            setfleetlist(allfleets);
+            console.log(res.data);
+           })
+   },[]);
+
+   const setvid=(vid,vtype,vfuel)=>{
+    props.setvid(vid);
+    props.setvtype(vtype);
+    props.setvfuel(vfuel);
+   }
     return (
+        
         <div style={{overflowX:"hidden"}}>
             <div className='my-4'>
                 <div class="row no-gutters justify-content-center">
@@ -54,7 +72,7 @@ const ParticularFleet = () => {
             </div>
             <div className='d-flex align-items-center my-3'>
                 <div>
-                <h3 className='heading'>Fleet : F101</h3>
+                <h3 className='heading'>Fleet : {props.fid}</h3>
                 </div>
                 
                 <div className='Searchadd'>
@@ -82,57 +100,23 @@ const ParticularFleet = () => {
                             Actions
                         </th>
                     </thead>
-                    <tbody style={{ textAlign: "center", justifyContent: "center" }}>
-                        <tr>
-                            <td>V1234</td>
-                            <td>SUV</td>
-                            <td>Petrol</td>
-                            <td>25 Mar 2023</td>
-                            <td><i class="fa-solid fa-pen m-2"></i>
-                            <i class="fa-solid fa-trash m-2"></i>
-                            <i class="fa-solid fa-eye m-2"></i>
+                    <tbody style={{textAlign:"center",justifyContent:"center"}}>
+                        {fleetlist.length >0 && fleetlist.map((item, index) => {
+                            return <tr key={index}>
+                            <td>{item.vehicleNo}</td>
+                            <td>{item.vehicleType}</td>
+                            <td>{item.fuelType}</td>
+                            <td>{item.date}</td>
+                            <td><span class="btn btn-xs btn-xs-default rounded border" ><i class="fa-solid fa-pen"></i></span>
+                            <span class="btn btn-xs btn-xs-default rounded border" ><i class="fa-solid fa-trash"></i></span>
+                               <Link to='/particularvehicle'> <span class="btn btn-xs btn-xs-default rounded border" onClick={()=> setvid(item.vehicleNo,item.vehicleType,item.fuelType)}><i class="fa-solid fa-eye"></i>
+                                </span></Link>
+                               
                             </td>
+                            
                         </tr>
-                        <tr>
-                            <td>V2345</td>
-                            <td>SUV</td>
-                            <td>Diesel</td>
-                            <td>24 Apr 2024</td>
-                            <td><i class="fa-solid fa-pen m-2"></i>
-                            <i class="fa-solid fa-trash m-2"></i>
-                            <i class="fa-solid fa-eye m-2"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>V4567</td>
-                            <td>SUV</td>
-                            <td>Petrol</td>
-                            <td>23 Feb 2024</td>
-                            <td><i class="fa-solid fa-pen m-2"></i>
-                            <i class="fa-solid fa-trash m-2"></i>
-                            <i class="fa-solid fa-eye m-2"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>V7686</td>
-                            <td>SUV</td>
-                            <td>Diesel</td>
-                            <td>13 Apr 2024</td>
-                            <td><i class="fa-solid fa-pen m-2"></i>
-                            <i class="fa-solid fa-trash m-2"></i>
-                            <i class="fa-solid fa-eye m-2"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>V7686</td>
-                            <td>SUV</td>
-                            <td>Diesel</td>
-                            <td>13 Apr 2024</td>
-                            <td><i class="fa-solid fa-pen m-2"></i>
-                            <i class="fa-solid fa-trash m-2"></i>
-                            <i class="fa-solid fa-eye m-2"></i>
-                            </td>
-                        </tr>
+
+                        })}
                     </tbody>
                 </table>
             </div>

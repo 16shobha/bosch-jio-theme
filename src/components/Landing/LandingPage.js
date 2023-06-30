@@ -2,10 +2,13 @@ import React,{useEffect, useState} from 'react'
 import Navbar from '../Navbar/Navbar'
 import '../Landing/LandingPage.css'
 import axios from 'axios';
+import { Link } from "react-router-dom";
+import ParticularFleet from '../ParticularFleet/ParticularFleet';
 
 
-const LandingPage = () => {
-    const[fleet,setfleet] = useState('');
+const LandingPage = (props) => {
+    const[fleet,setfleet] = useState([]);
+    const[fid,setfid]=useState('');
     useEffect(() => {
        axios.get('http://localhost:8080/api/fleets').then((res)=>{
         const allfleets = res.data;
@@ -25,10 +28,10 @@ const LandingPage = () => {
        })
       
     })
+  }
 
-
-
-
+  const viewfleet=(fleetid)=>{
+        props.setfid(fleetid);
   }
     return (
         <div>
@@ -67,8 +70,13 @@ const LandingPage = () => {
                             <td>{item.dateTime}</td>
                             <td><span class="btn btn-xs btn-xs-default rounded border" ><i class="fa-solid fa-pen"></i></span>
                             <span class="btn btn-xs btn-xs-default rounded border" onClick={()=>deleteUser(index)}><i class="fa-solid fa-trash"></i></span>
-                            <span class="btn btn-xs btn-xs-default rounded border"><i class="fa-solid fa-eye"></i></span>
+                            <Link to='/particularfleet'>
+                                <span class="btn btn-xs btn-xs-default rounded border" onClick={()=> viewfleet(item.fleetId)}
+                                ><i class="fa-solid fa-eye"></i>
+                                </span>
+                                </Link>
                             </td>
+                            
                         </tr>
 
                         })}
