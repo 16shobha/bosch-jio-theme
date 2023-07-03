@@ -7,6 +7,7 @@ const Notification = () => {
     const[fleets,setfleets]= useState([]);
     const[notification,setnotification] = useState([]);
     const [selectedfleet,setselectedfleet] = useState('');
+    const [emptymsg, setemptymsg] = useState('Select a fleet to view data...');
     useEffect(() => {
          axios.get('http://localhost:8080/api/fleets').then((res)=>{
          const fleetlist = res.data;
@@ -20,6 +21,9 @@ const Notification = () => {
             const notilist = res.data;
             setnotification(notilist);
             console.log(res.data);
+            if(notification.length===0){
+                setemptymsg('No record present...')
+            }
            })
        }
     return (
@@ -44,10 +48,13 @@ const Notification = () => {
                             </select>
                         </div>
                     </div>
-                    <button type="submit" className='btn btn-sm btn-success my-3' onClick={()=>displaydata(selectedfleet)} > Submit</button>
+                    <button type="submit" className='btn btn-sm btn-success my-3' onClick={()=>displaydata(selectedfleet)} >Submit</button>
                 </form>
             </div>
+            {(selectedfleet==='' || notification.length===0)  ?<div className='emptymsgstyle d-flex align-items-center justify-content-center'>{emptymsg}</div>:
+            <div className='datadisplay'>
             <div>
+               
                 <div class="row no-gutters justify-content-center">
                     <div class="col-sm-2 mb-3 mb-sm-0">
                         <div class="card">
@@ -115,7 +122,7 @@ const Notification = () => {
                             Vehicle Type
                         </th>
                         <th style={{ textAlign: "center" }}>
-                            Date
+                            Date and Time
                         </th>
                     </thead>
                     <tbody style={{ textAlign: "center", justifyContent: "center" }}>
@@ -132,6 +139,7 @@ const Notification = () => {
                     </tbody>
                 </table>
             </div>
+        </div>}
         </div>
     )
 }
