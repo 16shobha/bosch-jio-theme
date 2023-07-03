@@ -6,6 +6,7 @@ const FleetAging = () => {
     const[aging,setaging] = useState([]);
     const[fleets,setfleets]= useState([]);
     const [selectedfleet,setselectedfleet] = useState('');
+    const [emptymsg, setemptymsg] = useState('Select a fleet to view data...');
     useEffect(() => {
         axios.get('http://localhost:8080/api/fleets').then((res)=>{
         const fleetlist = res.data;
@@ -18,6 +19,9 @@ const FleetAging = () => {
         const allfleets = res.data;
         setaging(allfleets);
         console.log(res.data);
+        if(aging.length===0){
+            setemptymsg('No record present...')
+        }
        })
    }
    console.log(selectedfleet);
@@ -48,6 +52,8 @@ const FleetAging = () => {
                     <button type="submit" className='btn btn-sm btn-success my-3' onClick={()=>displaydata(selectedfleet)} > Submit</button>
                 </form>
             </div>
+            {(selectedfleet==='' || aging.length===0)  ?<div className='emptymsgstyle d-flex align-items-center justify-content-center'>{emptymsg}</div>:
+            <div className='displaydata'>
             <div >
                 <h3 className='heading'>Aging Status</h3>
             </div>
@@ -84,6 +90,7 @@ const FleetAging = () => {
                     </tbody>
                 </table>
             </div>
+            </div>}
         </div>
     )
 }

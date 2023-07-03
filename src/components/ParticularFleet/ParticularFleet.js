@@ -94,7 +94,7 @@ const ParticularFleet = (props) => {
                             Fuel Type
                         </th>
                         <th style={{ textAlign: "center" }}>
-                            Date
+                            Date and Time
                         </th>
                         <th style={{ textAlign: "center" }}>
                             Actions

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import ParticularFleet from '../ParticularFleet/ParticularFleet';
 
 
+
 const LandingPage = (props) => {
     const[fleet,setfleet] = useState([]);
     const[fid,setfid]=useState('');
@@ -33,6 +34,8 @@ const LandingPage = (props) => {
   const viewfleet=(fleetid)=>{
         props.setfid(fleetid);
   }
+
+
     return (
         <div>
             <div className='d-flex align-items-center '>
